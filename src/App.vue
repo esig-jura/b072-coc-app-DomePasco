@@ -2,6 +2,8 @@
 // Cheat Sheet: https://steve-fallet.notion.site/Vue-3-script-setup-Cheat-Sheet-b12192ceae244ecda65f771579ca02bc
 import {reactive, ref} from 'vue'
 import PageTopBarre from "@/components/PageTopBarre.vue";
+import PageHeader from "@/components/PageHeader.vue";
+import PageFooter from "@/components/PageFooter.vue";
 
 // Variable réactive primitive avec une valeur simple
 const titre = 'Clash of Clans'
@@ -84,13 +86,7 @@ function formerTroupe(pCout) {
 
 <template>
     <page-top-barre :or="totalOr" />
-    <header>
-        <h1>{{ titre }}</h1>
-        <p class="description"> {{ description }}</p>
-        <a :href="site">
-            <button>Site officiel</button>
-        </a>
-    </header>
+    <PageHeader :lien-site="site" :desc="description" :titre="titre" />
     <main>
         <ul class="cartes">
             <li v-for="troupe in troupes" :key="troupe.id">
@@ -143,12 +139,7 @@ function formerTroupe(pCout) {
             </li>
         </ul>
     </main>
-    <footer>
-        &copy; 2023 -
-        <a :href="site">
-            Supercell.com
-        </a>
-    </footer>
+    <PageFooter :lien-site="site" />
 </template>
 
 <style scoped lang="sass">
