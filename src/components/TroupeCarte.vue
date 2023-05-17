@@ -1,6 +1,8 @@
 <script setup>
 defineProps({
     troupe: {
+        type: Object,
+        required: true
 
     },
     or: {
